@@ -1,0 +1,28 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/lista/lista",
+    "pages/listb/listb",
+    "pages/view/view",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#000",
+    "navigationBarTitleText": "看新闻",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#ddd",
+    "selectedColor": "#000",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath": "assets/icons/index.png",
+      "selectedIconPath": "assets/icons/index_selected.png"
+    },{
+      "pagePath": "pages/lista/lista",
+      "text": "列表"
+    }]
+  }
+}
