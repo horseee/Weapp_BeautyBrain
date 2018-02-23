@@ -19,3 +19,20 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.block-list {
+  margin-top: 20rpx;
+}
+
+.news-list {
+  width: 320rpx;
+  height: 240rpx;
+  margin-left: 20px;
+}
+
+.info-list {
+  display:inline-block;
+  width:350rpx;
+  margin-left:30rpx;
+
+}

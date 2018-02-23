@@ -1,2 +1,8 @@
-<!--pages/lista/lista.wxml-->
-<text>pages/lista/lista.wxml</text>
+<!--index.wxml-->
+<!--最新内容-->
+<view class="block-list" wx:for="{{focus}}">
+<navigator url="/pages/view/view?id={{item.id}}">
+<image class="news-list" src="{{item.images}}"></image>
+<view class="info-list">{{item.title}}</view>
+</navigator>
+</view>

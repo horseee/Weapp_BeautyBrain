@@ -22,7 +22,12 @@
       "selectedIconPath": "assets/icons/index_selected.png"
     },{
       "pagePath": "pages/lista/lista",
-      "text": "列表"
+      "text": "娱乐",
+      "iconPath": "assets/icons/run.png",
+      "selectedIconPath": "assets/icons/run_selected.png"
+    },{
+      "pagePath": "pages/listb/listb",
+      "text": "财经"
     }]
   }
 }

@@ -1,13 +1,19 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+<!--焦点图-->
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+
+<block wx:for="{{focus}}">
+<swiper-item>
+<image src="{{item.images}}" mode="aspectFit"></image>
+</swiper-item>
+</block>
+</swiper>
+
+<!--最新内容-->
+<view class="block-list" wx:for="{{focus}}">
+<navigator url="/pages/view/view?id={{item.id}}">
+<image class="news-list" src="{{item.images}}"></image>
+<view class="info-list">{{item.title}}</view>
+</navigator>
 </view>
