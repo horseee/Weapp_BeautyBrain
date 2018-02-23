@@ -22,12 +22,16 @@
 
 .block-list {
   margin-top: 20rpx;
+  border-bottom: 1px solid #ededed;
+  border-top: 1px solid #ededed;
 }
 
 .news-list {
   width: 320rpx;
   height: 240rpx;
   margin-left: 20px;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
 }
 
 .info-list {

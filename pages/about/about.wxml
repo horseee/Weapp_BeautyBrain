@@ -1,0 +1,13 @@
+<!--pages/about/about.wxml-->
+<view class="container">
+    <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+    <view class="level-container">
+      <text class="Info">Lv. </text>
+      <text class="Info-Level">{{UserLevel}}</text>
+    </view>
+    <text class="name-container">{{userInfo.nickName}}</text>
+    <view class="place-container"> 
+      <text class="place">{{userInfo.city}} </text>
+      <text class="place">{{userInfo.province}}</text>
+    </view>
+</view>

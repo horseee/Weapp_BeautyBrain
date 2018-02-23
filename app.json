@@ -1,33 +1,34 @@
 {
   "pages":[
+    "pages/welcome/welcome",
     "pages/index/index",
-    "pages/lista/lista",
-    "pages/listb/listb",
-    "pages/view/view",
-    "pages/logs/logs"
+    "pages/question/question",
+    "pages/about/about"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#000",
-    "navigationBarTitleText": "看新闻",
-    "navigationBarTextStyle":"white"
+    "navigationBarBackgroundColor": "#E5E1DC",
+    "navigationBarTitleText": "L'oreal",
+    "navigationBarTextStyle":"black"
   },
   "tabBar": {
     "color": "#ddd",
     "selectedColor": "#000",
     "list": [{
       "pagePath": "pages/index/index",
-      "text": "首页",
+      "text": "社区",
       "iconPath": "assets/icons/index.png",
       "selectedIconPath": "assets/icons/index_selected.png"
     },{
-      "pagePath": "pages/lista/lista",
-      "text": "娱乐",
-      "iconPath": "assets/icons/run.png",
-      "selectedIconPath": "assets/icons/run_selected.png"
+      "pagePath": "pages/question/question",
+      "text": "答题",
+      "iconPath": "assets/icons/question.png",
+      "selectedIconPath": "assets/icons/question_selected.png"
     },{
-      "pagePath": "pages/listb/listb",
-      "text": "财经"
+      "pagePath": "pages/about/about",
+      "text": "个人",
+      "iconPath": "assets/icons/heart.png",
+      "selectedIconPath": "assets/icons/heart_selected.png"
     }]
   }
 }

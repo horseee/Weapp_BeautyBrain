@@ -1,0 +1,40 @@
+/* pages/about/about.wxss */
+.container{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.avatar{
+    width:175rpx;
+    height:175rpx;
+    margin-top:20rpx;
+    border-radius: 80%;
+}
+
+.motto{
+    margin-top:75rpx;
+}
+
+.motto-level{
+    margin-top:75rpx;
+    font-size:36rpx;
+    font-weight: bold;
+}
+
+.level-container{
+    margin-top: 45rpx;
+}
+
+.place{
+    font-size: 25rpx;
+}
+
+.name-container{
+    font-size:36rpx;
+    margin-top: 35rpx
+}
+
+page{
+    background-color:#E5E1DC;
+}

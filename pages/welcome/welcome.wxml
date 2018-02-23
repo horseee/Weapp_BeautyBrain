@@ -1,0 +1,7 @@
+<view class="container">
+    <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+    <text class="motto">Hello, {{userInfo.nickName}}</text>
+    <view catchtap="onTapJump" class="journey-container">
+        <text class="journey">Enter</text>
+    </view>
+</view>
