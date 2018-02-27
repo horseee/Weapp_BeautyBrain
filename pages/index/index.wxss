@@ -22,9 +22,11 @@
 .swiper-tab-list {
   font-size: 30rpx;
   display: inline-block;
-  width: 50%;
+  width: 30%;
   color: #777;
   border-bottom: 0rpx;
+  margin-left: 30rpx;
+  margin-right:30rpx;
 }
 
 .on {

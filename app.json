@@ -1,8 +1,8 @@
 {
   "pages":[
+    "pages/question/question",
     "pages/welcome/welcome",
     "pages/index/index",
-    "pages/question/question",
     "pages/about/about"
   ],
   "window":{

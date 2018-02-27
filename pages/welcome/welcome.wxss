@@ -18,22 +18,54 @@
     color:#473F33;
 }
 
+.userID-text{
+    font-size: 32rpx;
+    font-weight: bold;
+    color: #555555;
+}
+
+.userID-input{
+    margin-left: 15rpx;
+    font-size: 32rpx;
+    width: 290rpx;
+    text-align: center;
+    border-bottom: 1px solid #555555;
+}
+
+.input-box{
+    display: inline-flex;
+    flex-direction: row;
+    margin-top: 150rpx;
+    margin-left: 35rpx;
+    align-items:center;
+    justify-content: space-between;
+}
+
 .journey-container{
-    margin-top: 200rpx;
-    border: 1px solid #854139;
+    margin-top: 50rpx;
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.login-box{
     width: 200rpx;
     height: 80rpx;
-    border-radius: 5px;
     text-align:center;
+    margin-right: 30rpx;
+    margin-left: 30rpx; 
 }
 
 .journey{
     font-size:32rpx;
     font-weight: bold;
     line-height:80rpx;
-    color: #854139;
+    color: #919191;
+}
+
+.on{
+    color: #555555;
 }
 
 page{
-    background-color:#eee3e6;
+    background-color:#fff;
 }

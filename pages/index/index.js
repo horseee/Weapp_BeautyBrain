@@ -4,15 +4,14 @@ const app = getApp()
 
 Page({
   data: {
-    PostImage: ["/assets/image/1.jpg", "/assets/image/2.jpg","/assets/image/3.jpg"],
+    PostImage: ["/assets/image/1.jpg", "/assets/image/2.jpg","http://localhost/3.jpg"],
     focus:[],
     dateYear:"2017",
     dateMonth:"Jan",
     dateDay:"01",
     isShow: true,
     currentTab: 0,
-    /*motto: '你好，小程序',
-    userInfo: {},
+    /*userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')*/
     indicatorDots: true,
