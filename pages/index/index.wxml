@@ -1,18 +1,58 @@
 <!--index.wxml-->
+
 <!--焦点图-->
 <swiper indicator-dots="{{indicatorDots}}"
-  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
-<block wx:for="{{focus}}">
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" class="swipper-focus">
+<block wx:for="{{PostImage}}">
   <swiper-item>
-  <image src="{{item.images}}" mode="aspectFit"></image>
+  <image src="{{item}}" mode="scaleToFill"></image>
   </swiper-item>
 </block>
 </swiper>
 
-<!--最新内容-->
-<view class="block-list" wx:for="{{focus}}">
-  <navigator url="/pages/view/view?id={{item.id}}">
-    <image class="news-list" src="{{item.images}}"></image>
-    <view class="info-list">{{item.title}}</view>
-  </navigator>
+<!--选项卡-->
+<view class="swiper-tab"> 
+  <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">热门</view> 
+  <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">最新</view> 
 </view>
+
+<!--最新内容-->
+<view class="weui-cells__title" hidden="{{!isShow}}">
+
+<view class="block-list" wx:for="{{focus}}">
+  
+
+    <view class="info-list">
+      <view class="info-left-list">
+      <image src="/assets/image/head_sample.jpeg" class="head-portrait-list"></image>
+      <text class="name">horseee</text>
+      <text class="date">{{dateMonth}} {{dataDay}} {{dateYear}}</text>
+      </view>
+
+      <view class="tool-item" catchtap="onUpTap">
+      <image animation="{{animationUp}}" wx:if="{{upStatus}}" src="/assets/icons/liked.png" />
+      <image animation="{{animationUp}}" wx:else src="/assets/icons/like.png" />
+      </view>
+
+    </view>
+
+    <view class="image-list">
+      <image class="image-album" src="{{item.images}}"></image>
+      <image class="image-album" src="{{item.images}}"></image>
+      <image class="image-album" src="{{item.images}}"></image>
+    </view>
+
+    <navigator url="/pages/view/view?id={{item.id}}">
+    <view class="detail-list">{{item.title}}</view>
+    </navigator>
+
+  
+</view>
+
+</view>
+
+
+<view class="weui-cells__title" hidden="{{isShow}}">
+最新列表
+</view>
+

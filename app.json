@@ -7,13 +7,13 @@
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#E5E1DC",
+    "navigationBarBackgroundColor": "#FFF",
     "navigationBarTitleText": "L'oreal",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
     "color": "#ddd",
-    "selectedColor": "#000",
+    "selectedColor": "#848484",
     "list": [{
       "pagePath": "pages/index/index",
       "text": "社区",
