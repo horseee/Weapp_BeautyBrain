@@ -1,9 +1,12 @@
 {
   "pages":[
-    "pages/question/question",
     "pages/welcome/welcome",
+    "pages/about/about",
     "pages/index/index",
-    "pages/about/about"
+    
+    "pages/answer/answer",
+    "pages/question/question"
+   
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -20,7 +23,7 @@
       "iconPath": "assets/icons/index.png",
       "selectedIconPath": "assets/icons/index_selected.png"
     },{
-      "pagePath": "pages/question/question",
+      "pagePath": "pages/answer/answer",
       "text": "答题",
       "iconPath": "assets/icons/question.png",
       "selectedIconPath": "assets/icons/question_selected.png"

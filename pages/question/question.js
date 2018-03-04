@@ -17,12 +17,23 @@ Page({
         console.log(res)
       }
     })
+    this.drawAnswersheet()
+    wx.request({
+      url: 'http://127.0.0.1:5000/question/2018-03-03-19-30-00',
+      success: function (e) {
+        console.log(e)
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    
+    
+    // 每10s更换一次答题卡的内容
+   //this.interval = setInterval(this.drawAnswersheet, 10000);
 
   },
 
@@ -30,15 +41,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+  },
+
+  drawAnswersheet: function(){
 
     var wid = this.data.canvas_width
     console.log(wid/2)
     const ctx = wx.createCanvasContext('answer-sheet-background')
-    const stx = wx.createCanvasContext('answer-sheet-button')
-    
+
     ctx.translate(wid/2, wid/4)
-    stx.translate(wid/2, wid/2)
-    
+
+
+
     var circleR = wid / 12
 
     function drawAvator() {
@@ -93,14 +107,27 @@ Page({
       ctx.fill()
     }
 
+    function drawText(content, distance){
+      ctx.setFontSize(16)
+      ctx.setLineWidth(1)
+      ctx.setFillStyle('#000')
+      ctx.fillText(content, - wid / 3.6, distance + wid / 15)
+    }
+
+
     drawAvator()
     drawBorder()
     
     drawButton(wid / 2.4)
-    drawButton(wid / 2.4 + 50)
-    drawButton(wid / 2.4 + 100)
-    drawButton(wid / 2.4 + 150)
-   
+    drawButton(wid / 2.4 + wid / 8)
+    drawButton(wid / 2.4 + wid / 4)
+    drawButton(wid / 2.4 + wid / 8 * 3)
+
+    drawText('A. ysl', wid / 2.4)
+    drawText('B. l\'oreal',wid / 2.4 + wid / 8)
+    drawText('C. lancome',wid / 2.4 + wid / 4)
+    drawText('D. mac',wid / 2.4 + wid / 8 * 3)
+
     ctx.draw()
 
   },

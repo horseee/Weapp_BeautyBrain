@@ -1,14 +1,24 @@
 <!--index.wxml-->
 
+<!--搜索-->
+<view class="search">
+  <icon type="search" class="search-img" size="13" color="#405f80"></icon>
+  <input type="text" placeholder="" 
+  placeholder-class="placeholder" bindfocus="onBindFocus" value="{{inputValue}}"
+  bindconfirm="onBindConfirm"/>
+  <image wx:if="{{searchPanelShow}}" src="/images/icon/wx_app_xx.png" class="xx-img" catchtap="onCancelImgTap"></image>
+</view>
+
 <!--焦点图-->
 <swiper indicator-dots="{{indicatorDots}}"
   autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}" class="swipper-focus">
-<block wx:for="{{PostImage}}">
-  <swiper-item>
-  <image src="{{item}}" mode="scaleToFill"></image>
-  </swiper-item>
-</block>
+  <block wx:for="{{PostImage}}">
+    <swiper-item>
+    <image src="{{item}}" mode="scaleToFill"></image>
+    </swiper-item>
+  </block>
 </swiper>
+
 
 <!--选项卡-->
 <view class="swiper-tab"> 
@@ -55,4 +65,5 @@
 <view class="weui-cells__title" hidden="{{isShow}}">
 最新列表
 </view>
+
 

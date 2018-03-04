@@ -1,6 +1,3 @@
 <!--pages/question/question.wxml-->
 
-<canvas canvas-id="answer-sheet-background" style="z-index: -5"></canvas>
-<canvas canvas-id="answer-sheet-button"></canvas>
-<button>hello</button>
-
+<canvas canvas-id="answer-sheet-background"></canvas>

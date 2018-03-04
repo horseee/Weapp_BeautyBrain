@@ -66,6 +66,10 @@
     color: #555555;
 }
 
+.distance-far{
+    margin-top: 240rpx;
+}
+
 page{
     background-color:#fff;
 }

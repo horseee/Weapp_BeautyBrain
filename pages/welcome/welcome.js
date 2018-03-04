@@ -3,19 +3,47 @@ const app = getApp()
 Page({
   data: {
     enterButton: 0,
-    userID: ""
+    userID: "",
+    firstLogin: false,
+    code: ""
   },
 
   onLoad: function (event) {
     console.log("load the welcome page")
+    var that=this
+
+    wx.login({
+      success: function (res) {
+        console.log(res.code)
+        that.setData({
+          code: res.code
+        })
+      }
+    })
+
     wx.getUserInfo({
       success: res => {
         app.globalData.userInfo = res.userInfo
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+        that.setData({
+          userInfo: res.userInfo
         })
         console.log(res.userInfo)
+      }
+    })
+
+
+    wx.getStorageInfo({
+      success: function (res) {
+        console.log(res.keys)
+        if (res.keys.indexOf('UserID')==-1) {
+          that.setData({
+            firstLogin: true
+          })
+        } else {
+          that.setData({
+            enterButton: 1
+          })
+        }
       }
     })
   },
@@ -35,44 +63,77 @@ Page({
   },
 
   onTapJump: function (event) {
-    //登录是判断是否为第一次注册
+
     var tempID = this.data.userID
-    if (this.data.enterButton == 1) {
+    var co = this.data.code
+    var that = this
+    var notJump = false
+
+    if (this.data.enterButton == 1 && this.data.firstLogin == true) {
       wx.request({
-        url: 'http://localhost:5000/makeup_api/v1.0/UserInfo',
+        url: 'http://localhost:5000/login',
         data: {
           UserName: app.globalData.userInfo.nickName,
-          UserCode: tempID
+          StudentID: tempID,
+          UserUrl: app.globalData.userInfo.avatarUrl,
+          LoginCode : co
         },
         header: {
           "Content-Type": "application/json"
         },
         method: 'POST',
         success: function (res) {
-          console.log(res.data)
+          console.log(res)
+          if (res.statusCode == 500) {
+            wx.showToast({
+              title: '登录出现了一丢丢小问题，请联系管理员',
+              icon: 'loading',
+              duration: 2000  
+            })
+            notJump = true
+            console.log(notJump)
+          }
+          else {
+            wx.setStorage({
+              key: 'UserID',
+              data: res.data,
+            })
+            wx.switchTab({
+              url: "/pages/index/index",
+              success: function () {
+                console.log("jump to index success")
+              },
+              fail: function () {
+                console.log("jump failed")
+              },
+              complete: function () {
+                console.log("jump to index complete")
+              }
+            })
+          }
         }
       })
-
+    } else if (this.data.enterButton == 1 && this.data.firstLogin == false){
       wx.switchTab({
         url: "/pages/index/index",
         success: function () {
-          console.log("jump success")
+          console.log("jump to index success")
         },
         fail: function () {
           console.log("jump failed")
         },
         complete: function () {
-          console.log("jump complete")
+          console.log("jump to index complete")
         }
       })
     }
   },
 
   onUnload: function (event) {
-    console.log("page is unload")
+
   },
 
   onHide: function (event) {
-    console.log("page is hide")
+
   },
 })

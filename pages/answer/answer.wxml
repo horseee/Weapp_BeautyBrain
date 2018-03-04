@@ -1,0 +1,30 @@
+<!--pages/answer/answer.wxml-->
+
+
+<view class="time-box">
+  <view class="next-time">
+    <text class="black-font">下一场直播</text>
+    <text class="gray-font">{{live_time}}</text>
+  </view>
+  <view class="info-box">
+    <view class="alive">
+      <text class="alive-font">额外生命值</text>
+      <image src="/assets/icons/health.png" class="health-count"/>
+      <text class="heart-font">{{heart_extra}}</text>
+    </view>
+    <view class="alive">
+      <text class="alive-font">总排名</text>
+      <text class="ranking-font">{{ranking_whole}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="button-box">
+  <view class="battle-button" bindtap="GotoTwoBattle">
+    <text class="button-text" >双人对战</text>
+  </view>
+
+  <view class="battle-button">
+    <text class="button-text">百人PK</text>
+  </view>
+</view>

@@ -2,18 +2,23 @@
     <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
     <text class="motto">Hello, {{userInfo.nickName}}</text>
     
-    <view class="input-box">
+    <view wx:if="{{firstLogin}}" class="input-box">
       <text class="userID-text">学号: </text>
       <input class="userID-input" type="number" placeholder="3160100001" maxlength='10'
       bindinput="userIDInput"/>
     </view>
     
-    <view class="journey-container">
+    <view wx:if="{{firstLogin}}" class="journey-container">
       <view catchtap="onTapJump" class="login-box">
           <text class="journey {{enterButton==1 ? 'on' : ''}}">Enter</text>
       </view>
-      <view catchtap="onTapJump" class="login-box">
+      <view class="login-box">
           <text class="journey on">访客登陆</text>
+      </view>
+    </view>
+    <view wx:else class="journey-container">
+      <view catchtap="onTapJump" class="login-box distance-far">
+        <text class="journey on">Enter</text>
       </view>
     </view>
 </view>

@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    PostImage: ["/assets/image/1.jpg", "/assets/image/2.jpg","http://localhost/3.jpg"],
+    PostImage: ["http://127.0.0.1:5000/image/1.jpg", "http://127.0.0.1:5000/image/2.jpg","http://127.0.0.1:5000/image/3.jpg"],
     focus:[],
     dateYear:"2017",
     dateMonth:"Jan",
@@ -22,6 +22,7 @@ Page({
     pageNumber: 1,
     upStatus: 0,
   },
+  
 
   swichNav: function (e) {
     if (this.data.currentTab === e.target.dataset.current) {

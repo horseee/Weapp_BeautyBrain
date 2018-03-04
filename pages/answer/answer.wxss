@@ -1,0 +1,124 @@
+/* pages/answer/answer.wxss */
+
+.time-box {
+  width: 660rpx;
+  height: 680rpx;
+  margin: 0 auto;
+  margin-top: 106rpx;
+  border-radius: 6rpx;
+  -webkit-box-shadow: 0 0 25rpx rgba(0, 0, 0, 0.5);
+  background: #fff;
+  
+}
+
+/*下一场直播时间*/
+.next-time{
+  width: 660rpx;
+  height: 340rpx;
+  border-radius: 6rpx;
+  /*-webkit-box-shadow: 0 0 15rpx rgba(0, 0, 0, 0.5);*/
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.black-font{
+  color: #919191;
+  margin-top: 100rpx;
+  font-size: 30rpx;
+}
+
+.gray-font{
+  color: #000;
+  margin-top: 48rpx;
+  font-size: 48rpx;
+  font-weight: 500;
+}
+
+.info-box{
+  width: 660rpx;
+  height: 340rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+/*生命值*/
+.alive{
+  width: 330rpx;
+  height: 340rpx;
+  /*-webkit-box-shadow: 0 0 15rpx rgba(0, 0, 0, 0.5);*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.health-count{
+  width:100rpx;
+  height: 100rpx;
+  z-index: 0;
+  position: absolute;
+  margin-top: 160rpx;
+}
+
+.heart-font {
+  width:100rpx;
+  height: 100rpx;
+  z-index: 1;
+  position:absolute;
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: 800;
+  margin-top: 180rpx;
+  color: #fff;
+}
+
+.alive-font {
+  color: #919191;
+  margin-top: 60rpx;
+  font-size: 28rpx;
+}
+
+/*排名*/
+.ranking-font{
+  width:100rpx;
+  height: 100rpx;
+  z-index: 1;
+  position:absolute;
+  text-align: center;
+  font-size: 40rpx;
+  font-weight: 800;
+  margin-top: 180rpx;
+  color: #000;
+}
+
+/*按钮*/
+.button-box{
+  margin-top: 80rpx;
+  margin-bottom: 50rpx;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.battle-button{
+  width: 260rpx;
+  background: #fff;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 55rpx;
+  margin-top: 30rpx;
+  -webkit-box-shadow: 0 0 23rpx rgba(0, 0, 0, 0.5);
+  opacity: 0.8;
+}
+
+.button-text {
+  font-size: 40rpx;
+  color: #919191;
+  font-weight: 700;
+  padding: 0 20rpx;
+}
