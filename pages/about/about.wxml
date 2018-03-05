@@ -1,5 +1,6 @@
 <!--pages/about/about.wxml-->
 <view class="container">
+
   <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
   <view class="level-container">
     <text class="Info">Lv. </text>
@@ -11,56 +12,28 @@
     <text class="place">{{userInfo.city}} </text>
     <text class="place">{{userInfo.province}}</text>
   </view>
+
   <view class="divide-line">
-    <view class="like-box">
+    <navigator url="/pages/share/share" class="like-box">
       <text class = "list-number">{{saying_count}}</text>
       <text class = "list-type">动态</text>
-    </view>
+    </navigator>
     <view class="like-box">
       <text class = "list-number">{{album_count}}</text>
-      <text class = "list-type">相册</text>
+      <text class = "list-type">赞</text>
     </view>
     <view class="like-box">
       <text class = "list-number">{{question_score}}</text>
       <text class = "list-type">答题积分</text>
     </view>
   </view>
-
-  <scroll-view class="album_scroll_x_box" scroll-x="true">
-    <view class="photo_box" wx:for="{{}}">
-      <image src="{{item.pic}}" class="recommend_hot_image"></image>
-    </view>
-  </scroll-view>
-
-
-<!--说说列表-->
-  <view class="block-list" wx:for="{{focus}}">
-    <view class="info-list">
-      <view class="info-left-list">
-        <image src="{{userInfo.avatarUrl}}" class="head-portrait-list"></image>
-        <text class="name">{{userInfo.nickName}}</text>
-        <text class="date">{{dateMonth}} {{dataDay}} {{dateYear}}</text>
-      </view>
-
-      <view class="tool-item" catchtap="onUpTap">
-          <image animation="{{animationUp}}" wx:if="{{upStatus}}" src="/assets/icons/liked.png" />
-          <image animation="{{animationUp}}" wx:else src="/assets/icons/like.png" />
-      </view>
-
-    </view>
-
-    <view class="image-list">
-      <image class="image-album" src="{{item.images}}"></image>
-      <image class="image-album" src="{{item.images}}"></image>
-      <image class="image-album" src="{{item.images}}"></image>
-    </view>
-
-    <navigator url="/pages/view/view?id={{item.id}}">
-      <view class="detail-list">{{item.title}}</view>
-    </navigator>
-
   
-</view>
+  <navigator url = "/pages/new_post/new_post">
+    <image src="/assets/icons/plus.png" class="add-image"></image>
+  </navigator>
 
-    
+  <view>
+    <text class="add-text">发布新的动态</text>
+  </view>
+
 </view>

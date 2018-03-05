@@ -1,0 +1,16 @@
+<!--pages/new_post/new_post.wxml-->
+<view class="container">
+  <input placeholder=' 小标题(最多20字)' class='title-input' maxlength='20' bindinput = "titleInput"></input>
+  <view class="divide-line"></view> 
+  <textarea placeholder='分享今天美美的你' class='detail-input' maxlength='600' bindinput = "detailInput"></textarea>
+  <view class="divide-line"></view> 
+</view>
+
+<button style="margin:30rpx;" bindtap="ChooseImage">获取图片1</button>  
+<view wx:for="{{tempFilePaths}}">  
+  <image src="{{item}}" mode="aspecFill" style="width: 30%; height: 450rpx"/>  
+</view>
+
+
+
+<button style="margin:30rpx;" bindtap="ReleasePost">发布</button> 

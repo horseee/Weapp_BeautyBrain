@@ -71,7 +71,7 @@ Page({
 
     if (this.data.enterButton == 1 && this.data.firstLogin == true) {
       wx.request({
-        url: 'http://localhost:5000/login',
+        url: 'https://www.horseee.top/login',
         data: {
           UserName: app.globalData.userInfo.nickName,
           StudentID: tempID,

@@ -7,54 +7,16 @@ Page({
     UserLevel: 1,
     saying_count: 20,
     album_count: 10,
-    question_score: 0,
-    focus: [], 
-    dateYear: "2017",
-    dateMonth: "Jan",
-    dateDay: "01",
-    
+    question_score: 0
 
   },
+
   onLoad: function (options) {
     var that = this
     console.log(app.globalData.userInfo)
     this.setData({
       userInfo: app.globalData.userInfo,
     })
-
-    wx.request({
-      url: 'https://news-at.zhihu.com/api/4/news/latest',
-      success: function (e) {
-        console.log(e.data);
-        var PostDay = e.data.date;
-        var month;
-        
-        switch (e.data.date.slice(4, 6)) {
-          case "01": month = "Jan"; break;
-          case "02": month = "Tue"; break;
-          case "03": month = "Mar"; break;
-          case "04": month = "Apr"; break;
-          case "05": month = "May"; break;
-          case "06": month = "June"; break;
-          case "07": month = "July"; break;
-          case "08": month = "Aug"; break;
-          case "09": month = "Sept"; break;
-          case "10": month = "Oct"; break;
-          case "11": month = "Nov"; break;
-          case "12": month = "Dec"; break;
-          default:
-            month = "Jan"
-        }
-        that.setData({
-          focus: e.data.stories,
-          dateYear: PostDay.slice(0, 4),
-          dateMonth: month,
-          dataDay: PostDay.slice(6, 8),
-        })
-      }
-    })
-
-
   },
 
   /**

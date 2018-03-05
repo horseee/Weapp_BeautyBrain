@@ -1,0 +1,32 @@
+<!--pages/share/share.wxml-->
+<!--说说列表-->
+<view>
+
+  <view class="block-list" wx:for="{{focus}}">
+    <view class="info-list">
+      <view class="info-left-list">
+        <image src="{{userInfo.avatarUrl}}" class="head-portrait-list"></image>
+        <text class="name">{{userInfo.nickName}}</text>
+        <text class="date">{{dateMonth}} {{dataDay}} {{dateYear}}</text>
+      </view>
+
+      <view class="tool-item" catchtap="onUpTap">
+          <image animation="{{animationUp}}" wx:if="{{upStatus}}" src="/assets/icons/liked.png" />
+          <image animation="{{animationUp}}" wx:else src="/assets/icons/like.png" />
+      </view>
+
+    </view>
+
+    <view class="image-list">
+      <image class="image-album" src="{{item.images}}"></image>
+      <image class="image-album" src="{{item.images}}"></image>
+      <image class="image-album" src="{{item.images}}"></image>
+    </view>
+
+    <navigator url="/pages/view/view?id={{item.id}}">
+      <view class="detail-list">{{item.title}}</view>
+    </navigator>
+
+  
+  </view>
+</view>
