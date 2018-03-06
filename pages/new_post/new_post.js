@@ -1,4 +1,7 @@
 // pages/new_post/new_post.js
+
+var util = require('../../utils/util.js'); 
+
 Page({
 
   /**
@@ -94,6 +97,8 @@ Page({
 
   ReleasePost: function() {
     console.log("next")
+    var post_time = util.formatTime(new Date());
+
     var that = this
     wx.request({
       url: 'https://www.horseee.top/new-post',
@@ -101,7 +106,8 @@ Page({
         detail: that.data.detail,
         title: that.data.title,
         id: that.data.id,
-        image: that.data.server_path
+        image: that.data.server_path,
+        posttime: post_time
       },
       header: {
         "Content-Type": "application/json"

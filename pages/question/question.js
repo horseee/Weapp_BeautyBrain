@@ -19,7 +19,7 @@ Page({
     })
     this.drawAnswersheet()
     wx.request({
-      url: 'http://127.0.0.1:5000/question/2018-03-03-19-30-00',
+      url: 'https://www.horseee.top/question/2018-03-03-19-30-00',
       success: function (e) {
         console.log(e)
       }
@@ -45,11 +45,11 @@ Page({
 
   drawAnswersheet: function(){
 
-    var wid = this.data.canvas_width
-    console.log(wid/2)
-    const ctx = wx.createCanvasContext('answer-sheet-background')
+    //var wid = this.data.canvas_width
+    //console.log(wid/2)
+    //const ctx = wx.createCanvasContext('answer-sheet-background')
 
-    ctx.translate(wid/2, wid/4)
+    //ctx.translate(wid/2, wid/4)
 
 
 

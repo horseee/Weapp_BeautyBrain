@@ -1,0 +1,30 @@
+<view class="background" style = "position: abosolute; width:{{windowWidth}}px; height:{{windowHeight}}px; background-image: url('/assets/image/6.jpg');margin-top: 0px; display: flex; flex-direction:column; align-items: center">
+
+<view class="answer-sheet">
+    <view class="circle-box">
+      <canvas class="circle" style="width:200px; height:200px;" canvas-id="canvasArcCir">
+      </canvas>
+      <canvas class="circle" style="z-index: -5; width:200px; height:200px;" canvas-id="canvasCircle">
+      </canvas>
+      <view class="draw_btn" bindtap="drawCircle">绘制</view>
+    </view>
+
+    <text class="question-text">1. 请问今天是星期几?</text>
+
+    <view class="magic-btn magictime {{show_type}}" >
+      <button class="click-on">A.hello</button>
+    </view>
+
+    <view class="magic-btn magictime {{show_type}}">
+      <button >B.Hello</button>
+    </view>
+
+    <view class="magic-btn magictime {{show_type}}">
+      <button >C.Hello</button>
+    </view>
+    </view>
+
+
+</view>
+
+

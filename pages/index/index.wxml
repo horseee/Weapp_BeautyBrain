@@ -34,9 +34,9 @@
 
     <view class="info-list">
       <view class="info-left-list">
-      <image src="/assets/image/head_sample.jpeg" class="head-portrait-list"></image>
+      <image src="{{item.avatarUrl}}" class="head-portrait-list"></image>
       <text class="name">horseee</text>
-      <text class="date">{{dateMonth}} {{dataDay}} {{dateYear}}</text>
+      <text class="date">{{item.month}} {{item.day}} {{item.year}}</text>
       </view>
 
       <view class="tool-item" catchtap="onUpTap">
@@ -46,10 +46,10 @@
 
     </view>
 
-    <view class="image-list">
-      <image class="image-album" src="{{item.images}}"></image>
-      <image class="image-album" src="{{item.images}}"></image>
-      <image class="image-album" src="{{item.images}}"></image>
+    <view wx:if="{{item.url_1}}!=''" class="image-list">
+      <image class="image-album" src="{{item.url_1}}"></image>
+      <image class="image-album" src="{{item.url_2}}"></image>
+      <image class="image-album" src="{{item.url_3}}"></image>
     </view>
 
     <navigator url="/pages/view/view?id={{item.id}}">

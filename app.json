@@ -1,11 +1,12 @@
 {
   "pages":[
-    "pages/new_post/new_post",
-    "pages/welcome/welcome",
+    "pages/answer/answer",
+    "pages/live/live",
     
+    "pages/welcome/welcome",
+    "pages/new_post/new_post",
     "pages/about/about",
     "pages/index/index",
-    "pages/answer/answer",
     "pages/question/question",
     "pages/share/share"
   ],

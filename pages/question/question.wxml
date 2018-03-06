@@ -1,3 +1,1 @@
 <!--pages/question/question.wxml-->
-
-<canvas canvas-id="answer-sheet-background"></canvas>

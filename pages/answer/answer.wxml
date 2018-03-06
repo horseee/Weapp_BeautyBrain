@@ -23,8 +23,4 @@
   <view class="battle-button" bindtap="GotoTwoBattle">
     <text class="button-text" >双人对战</text>
   </view>
-
-  <view class="battle-button">
-    <text class="button-text">百人PK</text>
-  </view>
 </view>

@@ -4,7 +4,7 @@ const app = getApp()
 
 Page({
   data: {
-    PostImage: ["http://127.0.0.1:5000/image/1.jpg", "http://127.0.0.1:5000/image/2.jpg","http://127.0.0.1:5000/image/3.jpg"],
+    PostImage: ["https:/www.horseee.top/image/1.jpg", "https://www.horseee.top/image/2.jpg","https://www.horseee.top/image/3.jpg"],
     focus:[],
     dateYear:"2017",
     dateMonth:"Jan",
@@ -60,7 +60,7 @@ Page({
   },
 
   onReachBottom: function(){
-    var that = this;
+    /*var that = this;
     that.setData({
       pageNumber: that.data.pageNumber+1
     })
@@ -73,7 +73,7 @@ Page({
           focus: that.data.focus.concat(e.data.top_stories)
         })
       }
-    })
+    })*/
   },
 
   onLoad: function () {
@@ -85,36 +85,18 @@ Page({
     })
     this.animationUp = animationUp
 
+  },
+  
+  onShow: function() {
+    var that = this;
     wx.request({
-      url: 'https://news-at.zhihu.com/api/4/news/latest',
-      success: function(e){
-        console.log(e.data);
-        var PostDay = e.data.date;
-        var month;
-        switch (e.data.date.slice(4,6)) {
-          case "01": month = "Jan"; break;
-          case "02": month = "Tue"; break;
-          case "03": month = "Mar"; break;
-          case "04": month = "Apr"; break;
-          case "05": month = "May"; break;
-          case "06": month = "June"; break;
-          case "07": month = "July"; break;
-          case "08": month = "Aug"; break;
-          case "09": month = "Sept"; break;
-          case "10": month = "Oct"; break;
-          case "11": month = "Nov"; break;
-          case "12": month = "Dec"; break;
-          default:
-            month = "Jan"
-        }
+      url: 'https://www.horseee.top/hot/0',
+      success: function (e) {
+        console.log(e.data.posts);
         that.setData({
-          focus: e.data.stories,
-          dateYear: PostDay.slice(0,4),
-          dateMonth: month,
-          dataDay: PostDay.slice(6,8),
+          focus: e.data.posts,
         })
       }
     })
-  },
-  
+  }
 })

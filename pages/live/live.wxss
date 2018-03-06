@@ -1,0 +1,87 @@
+/**index.wxss**/
+
+.answer-sheet{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.magic-box{
+  text-align:center;
+  font-size:24px;
+}
+
+.question-text{
+  margin-top: 60px;
+  margin-bottom: 50rpx;
+  text-align: center;
+}
+
+.magic-btn{
+  margin:0px 20px;
+  margin-bottom: 30px;
+  height:40px;
+  width: 75%;
+  line-height:40px;
+  font-size:20px;
+  opacity: 0.85;
+  -webkit-box-shadow: 0 0 23rpx rgba(0, 0, 0, 0.5);
+}
+
+.answer-sheet{
+  background:#fff;
+  width: 80%;
+  opacity: 0.8;
+  margin-top: 50rpx;
+  border-radius: 35rpx;
+}
+
+@font-face {
+  font-family: 'iconfont';  /* project id 576528 */
+  src: url('//at.alicdn.com/t/font_576528_l0k6vdng8rnklnmi.eot');
+  src: url('//at.alicdn.com/t/font_576528_l0k6vdng8rnklnmi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_576528_l0k6vdng8rnklnmi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_576528_l0k6vdng8rnklnmi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_576528_l0k6vdng8rnklnmi.svg#iconfont') format('svg');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 35px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.diamond-icon:before {
+    content: '\e62e';
+}
+
+
+.circle-box {
+  text-align: center;
+  margin-top: 10rpx;
+  width: 80%;
+  height: 100rpx;
+}
+
+.circle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.draw_btn {
+  width: 100rpx;
+  position: absolute;
+  top: 100rpx;
+  margin: auto;
+  border: 1px #000 solid;
+  border-radius: 5vw;
+}
+
+.click-on{
+  background-color: #EFB3BC;
+  opacity: 0.8;
+}
