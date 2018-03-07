@@ -11,8 +11,13 @@ Page({
     live_time: "3月3日 19:00",
     heart_extra: 0,
     ranking_whole: '100+',
-    id: ''
+    id: '',
   },
+
+  test: function() {
+     
+  },
+
 
   GotoTwoBattle: function() {
     var userInf = app.globalData.userInfo
@@ -45,15 +50,15 @@ Page({
             icon: 'loading'
           })
         }
-        
       }
     })
-
-    
   },
   /**
    * 生命周期函数--监听页面加载
    */
+
+  
+
   onLoad: function (options) {
     var that = this
     wx.getStorage({
@@ -67,6 +72,11 @@ Page({
       fail: function (res) { },
       complete: function (res) { },
     })
+
+    wx.onBackgroundAudioPlay(function () {
+      console.log('onBackgroundAudioPlay')
+    }) 
+    
   },
 
   /**
@@ -116,5 +126,6 @@ Page({
    */
   onShareAppMessage: function () {
   
-  }
+  },
+
 })

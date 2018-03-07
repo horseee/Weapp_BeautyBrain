@@ -6,11 +6,13 @@
   <view class="divide-line"></view> 
 </view>
 
+<view style="margin:30rpx;" bindtap="ChooseImage" style="width: 200px; height: 200px">
+<image src="/assets/icons/bird.png"  style="width:200px height:200px"/>
+</view>
+
 <button style="margin:30rpx;" bindtap="ChooseImage">获取图片1</button>  
 <view wx:for="{{tempFilePaths}}">  
   <image src="{{item}}" mode="aspecFill" style="width: 30%; height: 450rpx"/>  
 </view>
-
-
 
 <button style="margin:30rpx;" bindtap="ReleasePost">发布</button> 

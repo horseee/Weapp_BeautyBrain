@@ -1,28 +1,37 @@
 <view class="background" style = "position: abosolute; width:{{windowWidth}}px; height:{{windowHeight}}px; background-image: url('/assets/image/6.jpg');margin-top: 0px; display: flex; flex-direction:column; align-items: center">
 
-<view class="answer-sheet">
+  <view class="answer-sheet">
     <view class="circle-box">
       <canvas class="circle" style="width:200px; height:200px;" canvas-id="canvasArcCir">
       </canvas>
       <canvas class="circle" style="z-index: -5; width:200px; height:200px;" canvas-id="canvasCircle">
       </canvas>
-      <view class="draw_btn" bindtap="drawCircle">绘制</view>
     </view>
 
-    <text class="question-text">1. 请问今天是星期几?</text>
+    <text class="question-text magictime {{special_effects}}">{{detail}}</text>
 
-    <view class="magic-btn magictime {{show_type}}" >
-      <button class="click-on">A.hello</button>
-    </view>
-
-    <view class="magic-btn magictime {{show_type}}">
-      <button >B.Hello</button>
+    <view class="magic-btn magictime {{special_effects}} {{isA_click==true ? 'click-on' : ''}}" bindtap='chooseAnswer' data-type = 'A'>
+      <text style = "margin-left: 30rpx;">{{A_text}}</text>
     </view>
 
-    <view class="magic-btn magictime {{show_type}}">
-      <button >C.Hello</button>
+    <view class="magic-btn magictime {{special_effects}} {{isB_click==true ? 'click-on' : ''}}" bindtap='chooseAnswer' data-type = 'B'>
+      <text style = "margin-left: 30rpx;">{{B_text}}</text>
     </view>
+
+    <view class="magic-btn magictime {{special_effects}} {{isC_click==true ? 'click-on' : ''}}" bindtap='chooseAnswer' data-type = 'C'>
+      <text style = "margin-left: 30rpx;">{{C_text}}</text>
     </view>
+  </view>
+
+  <view class = "alive-count">
+  <view class = "info-text">
+  <text>本场人数</text> 
+  <text>{{total_count}}</text>
+  <text>人 ，剩余</text>
+  <text>{{remain_count}}</text>
+  <text>人</text>
+  </view>
+  </view>
 
 
 </view>

@@ -21,6 +21,6 @@
 
 <view class="button-box">
   <view class="battle-button" bindtap="GotoTwoBattle">
-    <text class="button-text" >双人对战</text>
+    <text class="button-text" >进入直播</text>
   </view>
 </view>
