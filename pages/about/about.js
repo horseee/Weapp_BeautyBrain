@@ -5,8 +5,8 @@ const app=getApp()
 Page({
   data: {
     UserLevel: 1,
-    saying_count: 20,
-    album_count: 10,
+    saying_count: 0,
+    like_count: 0,
     question_score: 0
 
   },
@@ -30,7 +30,20 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that=this
+    wx.request({
+      url: 'https://www.horseee.top/user_info',
+      data: {
+        userid: app.globalData.id
+      },
+      success: function (e) {
+        console.log(e)
+        that.setData({
+          like_count: e.data.info[0].like,
+          saying_count: e.data.info[0].saying
+        })
+      }
+    })
   },
 
   /**

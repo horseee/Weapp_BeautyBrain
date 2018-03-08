@@ -12,17 +12,21 @@ var new_question_timer;
 var effects_timer;
 var vanish_timer;
 var Result_timer;
+var Remain_timer_1;
+var Remain_timer_2;
+
 
 Page({
   data: {
+    remain_type: "",
     show_type: "",
     windowWidth: 375,
     windowHeight: 603,
     id: "",
-    start_time: "2018-03-07-19-26-45",
+    start_time: "2018-03-08-22-55-00",
     QuestionInf: "",
-    A_text: "hello",
-    B_text: "hello",
+    A_text: "",
+    B_text: "",
     C_text: "",
     detail: "   ",
     special_effects: "",
@@ -34,6 +38,14 @@ Page({
     isAlive: true,
     total_count: 0,
     remain_count :0,
+    isA_correct: false,
+    isA_wrong: false,
+    isB_correct: false,
+    isB_wrong: false,
+    isC_correct: false,
+    isC_wrong: false,
+    isAnswerShow: false,
+    stilldied: false
   },
 
   startAnswer: function () {
@@ -58,18 +70,72 @@ Page({
         special_effects: "vanishIn",
         isAbletoClick: true,
         temp_question_id: index,
+        isA_correct: false,
+        isA_wrong: false,
+        isB_correct: false,
+        isB_wrong: false,
+        isC_correct: false,
+        isC_wrong: false,
+        isAnswerShow: false,
+        isA_click: false,
+        isB_click: false,
+        isC_click: false,
       })
       that.drawCircle()
       var questionin = index+1
       var temp_url = 'https://www.horseee.top/contest_number_' + questionin
       Result_timer = setTimeout(function(){
+        if (that.data.QuestionInf[index].answer == 'A') {
+          that.setData({
+            isA_correct: true
+          })
+        } else if (that.data.QuestionInf[index].answer == 'B') {
+          that.setData({
+            isB_correct: true
+          })
+        } else {
+          that.setData({
+            isC_correct: true
+          })
+        }
+
+        if (that.data.isAlive == false && that.data.stilldied == false) {
+          wx.showModal({
+            title: 'Sorry',
+            content: '答错啦！还需继续加油哦～',
+            confirmText: '退出',
+            success: function (res) {
+              if (res.confirm) {
+                wx.switchTab({
+                  url: '/pages/answer/answer',
+                })
+              } 
+            }
+          }) 
+        }
+
+        that.setData({
+          isAnswerShow: true,
+          stilldied: !that.data.isAlive
+        })
         wx.request({
           url: temp_url,
           success: function (e) {
             console.log(e)
             that.setData({
-              remain_count: e.data
+              remain_type: "tinDownOut"
             })
+            Remain_timer_1 = setTimeout(function(){
+              that.setData({
+                remain_count: e.data,
+                remain_type: "tinDownIn"
+              })
+              Remain_timer_2 = setTimeout(function () {
+                that.setData({
+                  remain_type: ""
+                })
+              }, 1000)
+            }, 1000)
           }
         })
       }, 16000)
@@ -191,7 +257,8 @@ Page({
       if (that.data.QuestionInf[question_index].answer == 'A') {
         console.log("Answer Correct")
         that.setData({
-          isAlive: true
+          isAlive: true,
+          isA_correct: true
         })
         wx.request({
           url: 'https://www.horseee.top/contest_correct',
@@ -209,7 +276,8 @@ Page({
         })
       } else {
         that.setData({
-          isAlive: false
+          isAlive: false,
+          isA_wrong:true
         })
       }
     }
@@ -221,7 +289,8 @@ Page({
       if (that.data.QuestionInf[question_index].answer == 'B') {
         console.log("Answer Correct")
         that.setData({
-          isAlive: true
+          isAlive: true,
+          isB_correct: true
         })
         wx.request({
           url: 'https://www.horseee.top/contest_correct',
@@ -239,7 +308,8 @@ Page({
         })
       } else {
         that.setData({
-          isAlive: false
+          isAlive: false,
+          isB_wrong: true
         })
       }
     }
@@ -251,7 +321,8 @@ Page({
       if (that.data.QuestionInf[question_index].answer == 'C') {
         console.log("Answer Correct")
         that.setData({
-          isAlive: true
+          isAlive: true,
+          isC_correct: true
         })
         wx.request({
           url: 'https://www.horseee.top/contest_correct',
@@ -269,11 +340,12 @@ Page({
         })
       } else {
         that.setData({
-          isAlive: false
+          isAlive: false,
+          isC_wrong: true
         })
       }
     }
-    
+
   },
 
   drawCircle: function () {
@@ -304,9 +376,6 @@ Page({
           }
           that.setData({
             isAbletoClick: false,
-            isA_click: false,
-            isB_click: false,
-            isC_click: false,
           })
         }
         endAngle = step * 2 * Math.PI / n + 1.5 * Math.PI;

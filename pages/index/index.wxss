@@ -8,16 +8,22 @@
   width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between
 }
 
 .search-img {
-  margin: auto 0 auto 20rpx;
+  margin: auto 40rpx auto 0;
+}
+
+.search-button{
+  font-size: 30rpx;
+
 }
 
 .search input {
   height: 100%;
   width: 600rpx;
-  margin-left: 20px;
+  margin-left: 40rpx;
   font-size: 28rpx;
 }
 
@@ -120,17 +126,22 @@
   align-items:center;
 }
 
+.like-count-text{
+  font-size: 28rpx;
+  color: #919191;
+}
+
 .name {
   color: #919191;
   font-style: bold;
-  margin-left: 10rpx;
+  margin-left: 20rpx;
   font-size: 28rpx;
 }
 
 .date{
-  color: #919191;
-  margin-left: 10rpx;
-  font-size: 20rpx;
+  color: #CCC;
+  margin: auto 20rpx;
+  font-size: 28rpx;
 }
 
 .head-portrait-list{
@@ -140,14 +151,23 @@
 }
 
 .detail-list{
-  margin:0 60rpx 0 60rpx;
-  font-size: 24rpx;
+  margin:0 0rpx 0 80rpx;
+  font-size: 32rpx;
   font-family: Microsoft YaHei;
   color: #919191;
 }
 
 .tool-item{
   margin-right: 50rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.divide-line{
+  width: 80%;
+  border-bottom: 1px solid #ededed;
+  margin: 15rpx auto;
 }
 
 /**like**/

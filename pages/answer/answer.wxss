@@ -43,10 +43,17 @@
 }
 
 /*生命值*/
-.alive{
+.alive-box-1{
   width: 330rpx;
   height: 340rpx;
-  /*-webkit-box-shadow: 0 0 15rpx rgba(0, 0, 0, 0.5);*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.alive-box-2{
+  width: 330rpx;
+  height: 340rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -83,11 +90,10 @@
   width:100rpx;
   height: 100rpx;
   z-index: 1;
-  position:absolute;
   text-align: center;
   font-size: 40rpx;
   font-weight: 800;
-  margin-top: 180rpx;
+  margin-top: 75rpx;
   color: #000;
 }
 

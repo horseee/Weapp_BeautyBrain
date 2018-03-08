@@ -1,18 +1,24 @@
 <!--pages/new_post/new_post.wxml-->
-<view class="container">
-  <input placeholder=' 小标题(最多20字)' class='title-input' maxlength='20' bindinput = "titleInput"></input>
-  <view class="divide-line"></view> 
-  <textarea placeholder='分享今天美美的你' class='detail-input' maxlength='600' bindinput = "detailInput"></textarea>
-  <view class="divide-line"></view> 
+<view class="post_container">
+  <view class="other-container">
+    <input placeholder=' 小标题(最多18字)' class='title-input' maxlength='18' bindinput = "titleInput"></input>
+    <view class="divide-line"></view> 
+    <textarea placeholder='分享今天美美的你(暂还不支持emoji ╥﹏╥)' class='detail-input' maxlength='600' bindinput = "detailInput"></textarea>
+    <view class="divide-line"></view> 
+  </view>
+
+  <view class="album_show">
+    <view wx:for="{{finish_image}}">  
+      <image src="{{item}}" mode="aspecFill" style="width: 100px; height: 100px"/>  
+    </view>
+  </view>
+
+  <view style="width: 100%; height: 100px; display:flex; flex-direction: row">
+    <image bindtap="ChooseImage" src="/assets/icons/camera-3.png" mode="aspectFit" style="width: 60%; height: 60%; margin-left:2%; margin-top:8%"/>
+    <image bindtap="ReleasePost" src="/assets/icons/ok.png" mode="aspectFit" style="width: 60%; height: 60%; margin-right:3%; margin-top:8%"/>
+  </view>
 </view>
 
-<view style="margin:30rpx;" bindtap="ChooseImage" style="width: 200px; height: 200px">
-<image src="/assets/icons/bird.png"  style="width:200px height:200px"/>
-</view>
 
-<button style="margin:30rpx;" bindtap="ChooseImage">获取图片1</button>  
-<view wx:for="{{tempFilePaths}}">  
-  <image src="{{item}}" mode="aspecFill" style="width: 30%; height: 450rpx"/>  
-</view>
 
-<button style="margin:30rpx;" bindtap="ReleasePost">发布</button> 
+

@@ -31,7 +31,6 @@ Page({
       }
     })
 
-
     wx.getStorageInfo({
       success: function (res) {
         console.log(res.keys)
@@ -42,6 +41,18 @@ Page({
         } else {
           that.setData({
             enterButton: 1
+          })
+          wx.getStorage({
+            key: 'UserID',
+            success: function (res) {
+              console.log(res)
+              that.setData({
+                userID: res.data
+              })
+              app.globalData.id = res.data
+            },
+            fail: function (res) { },
+            complete: function (res) { },
           })
         }
       }
@@ -84,22 +95,23 @@ Page({
         method: 'POST',
         success: function (res) {
           console.log(res)
-          if (res.statusCode == 500) {
+          if (res.statusCode == 500 || res.data == -1) {
             wx.showToast({
-              title: '登录出现了一丢丢小问题，请联系管理员',
+              title: '登录出现了小问题',
               icon: 'loading',
               duration: 2000  
             })
             notJump = true
-            console.log(notJump)
           }
           else {
+            app.globalData.id = res.data;
             wx.setStorage({
               key: 'UserID',
               data: res.data,
             })
+
             wx.switchTab({
-              url: "/pages/index/index",
+              url: '/pages/index/index',
               success: function () {
                 console.log("jump to index success")
               },
@@ -110,12 +122,13 @@ Page({
                 console.log("jump to index complete")
               }
             })
+
           }
         }
       })
     } else if (this.data.enterButton == 1 && this.data.firstLogin == false){
       wx.switchTab({
-        url: "/pages/index/index",
+        url: '/pages/index/index',
         success: function () {
           console.log("jump to index success")
         },

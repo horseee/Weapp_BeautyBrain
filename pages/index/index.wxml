@@ -2,11 +2,11 @@
 
 <!--搜索-->
 <view class="search">
-  <icon type="search" class="search-img" size="13" color="#405f80"></icon>
+  
   <input type="text" placeholder="" 
   placeholder-class="placeholder" bindfocus="onBindFocus" value="{{inputValue}}"
   bindconfirm="onBindConfirm"/>
-  <image wx:if="{{searchPanelShow}}" src="/images/icon/wx_app_xx.png" class="xx-img" catchtap="onCancelImgTap"></image>
+  <icon type="search" class="search-img" size="13" color="#405f80"></icon>
 </view>
 
 <!--焦点图-->
@@ -26,44 +26,74 @@
   <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">最新</view> 
 </view>
 
-<!--最新内容-->
+<!--最热内容-->
 <view class="weui-cells__title" hidden="{{!isShow}}">
 
-<view class="block-list" wx:for="{{focus}}">
-  
-
+  <view class="block-list" wx:for="{{focus}}" wx:for-index="idx">
     <view class="info-list">
       <view class="info-left-list">
-      <image src="{{item.avatarUrl}}" class="head-portrait-list"></image>
-      <text class="name">horseee</text>
-      <text class="date">{{item.month}} {{item.day}} {{item.year}}</text>
+        <image src="{{item.avatarUrl}}" class="head-portrait-list"></image>
+        <text class="name">{{item.name}}</text>
+        <text class="date">{{item.month}} {{item.day}} {{item.daytime}}</text>
       </view>
 
-      <view class="tool-item" catchtap="onUpTap">
-      <image animation="{{animationUp}}" wx:if="{{upStatus}}" src="/assets/icons/liked.png" />
-      <image animation="{{animationUp}}" wx:else src="/assets/icons/like.png" />
+      <view class="tool-item" catchtap="onUpTap" data-type="{{idx}}">
+        <image  wx:if="{{item.upstatus}}" src="/assets/icons/liked.png" />
+        <image  wx:else src="/assets/icons/like.png" />
+        <text class="like-count-text">{{item.LikeCount}}</text>
       </view>
 
     </view>
 
     <view wx:if="{{item.url_1}}!=''" class="image-list">
-      <image class="image-album" src="{{item.url_1}}"></image>
-      <image class="image-album" src="{{item.url_2}}"></image>
-      <image class="image-album" src="{{item.url_3}}"></image>
+      <image class="image-album" src="{{item.url_1}}" data-src="{{item.url_1}}" bindtap="ImageLook" data-type="{{idx}}"></image>
+      <image class="image-album" src="{{item.url_2}}" data-src="{{item.url_2}}" bindtap="ImageLook" data-type="{{idx}}"></image>
+      <image class="image-album" src="{{item.url_3}}" data-src="{{item.url_3}}" bindtap="ImageLook" data-type="{{idx}}"></image>
     </view>
 
-    <navigator url="/pages/view/view?id={{item.id}}">
-    <view class="detail-list">{{item.title}}</view>
+    <navigator url="/pages/view/view?postid={{item.postid}}" data-type="{{idx}}">
+      <text class="detail-list">{{item.title}}</text>
     </navigator>
 
-  
-</view>
+    <view class="divide-line"> </view>
+
+  </view>
 
 </view>
 
-
+<!--最新内容-->
 <view class="weui-cells__title" hidden="{{isShow}}">
-最新列表
+
+  <view class="block-list" wx:for="{{new_post_list}}" wx:for-index="idx">
+    <view class="info-list">
+      <view class="info-left-list">
+        <image src="{{item.avatarUrl}}" class="head-portrait-list"></image>
+        <text class="name">{{item.name}}</text>
+        <text class="date">{{item.month}} {{item.day}} {{item.daytime}}</text>
+      </view>
+
+      <view class="tool-item" catchtap="onUpTap" data-type="{{idx}}">
+        <image wx:if="{{item.upstatus}}" src="/assets/icons/liked.png" />
+        <image wx:else src="/assets/icons/like.png" />
+        <text class="like-count-text">{{item.LikeCount}}</text>
+      </view>
+
+    </view>
+
+    <view class="image-list">
+      <image class="image-album" src="{{item.url_1}}"  data-src="{{item.url_1}}" bindtap="ImageLook" data-type="{{idx}}"></image>
+      <image class="image-album" src="{{item.url_2}}"  data-src="{{item.url_1}}" bindtap="ImageLook" data-type="{{idx}}"></image>
+      <image class="image-album" src="{{item.url_3}}"  data-src="{{item.url_1}}" bindtap="ImageLook" data-type="{{idx}}"></image>
+    </view>
+
+    <navigator url="/pages/view/view?postid={{item.postid}}" data-type="{{idx}}">
+      <text class="detail-list">{{item.title}}</text>
+    </navigator>
+
+    <view class="divide-line"> </view>
+
+  </view>
+
 </view>
 
 

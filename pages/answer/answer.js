@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    live_time: "3月3日 19:00",
+    live_time: "3月8日 23:00",
     heart_extra: 0,
     ranking_whole: '100+',
     id: '',

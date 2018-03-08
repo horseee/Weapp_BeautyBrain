@@ -3,10 +3,6 @@
 <view class="container">
 
   <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
-  <view class="level-container">
-    <text class="Info">Lv. </text>
-    <text class="Info-Level">{{UserLevel}}</text>
-  </view>
   <text class="name-container">{{userInfo.nickName}}</text>
   <view class="place-container"> 
     <image src="/assets/icons/location.png" class="location-icon"></image>
@@ -20,7 +16,7 @@
       <text class = "list-type">动态</text>
     </navigator>
     <view class="like-box">
-      <text class = "list-number">{{album_count}}</text>
+      <text class = "list-number">{{like_count}}</text>
       <text class = "list-type">赞</text>
     </view>
     <view class="like-box">

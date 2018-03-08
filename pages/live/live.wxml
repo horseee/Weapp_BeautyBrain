@@ -11,25 +11,31 @@
     <text class="question-text magictime {{special_effects}}">{{detail}}</text>
 
     <view class="magic-btn magictime {{special_effects}} {{isA_click==true ? 'click-on' : ''}}" bindtap='chooseAnswer' data-type = 'A'>
-      <text style = "margin-left: 30rpx;">{{A_text}}</text>
+      <text style = "margin-left: 30rpx; width: 60%">{{A_text}}</text>
+      <image wx:if = "{{isA_correct && isAnswerShow}}" src = "/assets/icons/correct.png" class="right-class"></image>
+      <image wx:if = "{{isA_wrong && isAnswerShow}}" src = "/assets/icons/wrong.png" class="wrong-class"></image>
     </view>
 
     <view class="magic-btn magictime {{special_effects}} {{isB_click==true ? 'click-on' : ''}}" bindtap='chooseAnswer' data-type = 'B'>
       <text style = "margin-left: 30rpx;">{{B_text}}</text>
+      <image wx:if = "{{isB_correct && isAnswerShow}}" src = "/assets/icons/correct.png" class="right-class"></image>
+      <image wx:if = "{{isB_wrong && isAnswerShow}}" src = "/assets/icons/wrong.png" class="wrong-class"></image>
     </view>
 
     <view class="magic-btn magictime {{special_effects}} {{isC_click==true ? 'click-on' : ''}}" bindtap='chooseAnswer' data-type = 'C'>
       <text style = "margin-left: 30rpx;">{{C_text}}</text>
+      <image wx:if = "{{isC_correct && isAnswerShow}}" src = "/assets/icons/correct.png" class="right-class"></image>
+      <image wx:if = "{{isC_wrong && isAnswerShow}}" src = "/assets/icons/wrong.png" class="wrong-class"></image>
     </view>
   </view>
 
   <view class = "alive-count">
   <view class = "info-text">
-  <text>本场人数</text> 
-  <text>{{total_count}}</text>
-  <text>人 ，剩余</text>
-  <text>{{remain_count}}</text>
-  <text>人</text>
+  <text>本场人数 </text> 
+  <text class="total-count">{{total_count}}</text>
+  <text> 人 ，剩余 </text>
+  <text class="remain-count magictime {{remain_type}}">{{remain_count}}</text>
+  <text> 人</text>
   </view>
   </view>
 

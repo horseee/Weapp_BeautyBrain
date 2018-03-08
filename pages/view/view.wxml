@@ -1,0 +1,36 @@
+<!--pages/view/view.wxml-->
+
+<view class="de-container">
+
+  <view class="text-container">
+    <text class="title">{{detail.title}}</text>
+  </view>
+
+  <view class = "detail-container">
+    <view class="author-date">
+      <view class="author-box">
+        <image class="avatar" src="{{detail.avatar}}"></image>
+        <text class="author">{{detail.name}}</text>
+      </view>
+      <text class="date">{{detail.time}}</text>
+    </view>
+  </view>
+
+  <text class="detail">{{detail.detail}}</text>
+
+  <view class="album-list">
+  <view  wx:for="{{detail.image}}">
+    <image style = "width: {{image_width}}rpx;height:{{image_height}}rpx;margin-left:4rpx;margin-right:4rpx" src="{{item}}" mode = "aspectFill"></image>
+  </view>
+</view>
+
+</view>
+
+
+<view class="tool">
+  <view class="tool-item" catchtap="onUpTap" data-post-id="{{post.postId}}">
+    <image animation="{{animationUp}}" wx:if="{{detail.upstatus}}" src="/assets/icons/liked.png" />
+    <image animation="{{animationUp}}" wx:else src="/assets/icons/like.png" />
+    <text class="like-class">{{detail.like}}</text>
+  </view>
+</view>

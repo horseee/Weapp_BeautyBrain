@@ -12,7 +12,9 @@ Page({
     title: '',
     detail: '',
     id: '',
-    server_path: []
+    server_path: ['','',''],
+    finish_image: ['','',''],
+    image_count: 0
   },
 
   /**
@@ -52,29 +54,43 @@ Page({
       var UserId;
       console.log("update image file")
       var count = that.data.tempFilePaths.length;
-      var get_url = new Array()
+      console.log(that.data.image_count);
+      
       for (var i = 0; i < that.data.tempFilePaths.length; i++) {
-        wx.uploadFile({
-          url: 'https://www.horseee.top/upload', 
-          filePath: that.data.tempFilePaths[i],
-          name: 'file',
-          success: function (res) {
-            console.log(res.data)
-            var result_url = that.data.server_path
-            get_url.push(res.data)
-            that.setData({
-              server_path: get_url
-            })
-          },
-          fail: function (res) {
-            console.log(res)
-            wx.showToast({
-              title: '上传图片失败,请重新尝试',
-              duration: 2000
-            })
-            return;
-          },
-        })
+        console.log(that.data.image_count)
+        if (that.data.image_count < 3) {
+          wx.uploadFile({
+            url: 'https://www.horseee.top/upload', 
+            filePath: that.data.tempFilePaths[i],
+            name: 'file',
+            success: function (res) {
+              console.log(res.data)   
+              that.data.server_path[that.data.image_count] = res.data
+              var ok_url = res.data.replace("/root/loreal-server/", "https://www.horseee.top/image/")
+              that.data.finish_image[that.data.image_count] = ok_url
+              that.setData({
+                server_path: that.data.server_path,
+                finish_image: that.data.finish_image,
+                image_count : that.data.image_count + 1
+              })
+            },
+            fail: function (res) {
+              console.log(res)
+              wx.showToast({
+                title: '上传图片失败,请重新尝试',
+                icon: 'loading',
+                duration: 2000
+              })
+              return;
+            },
+          })
+        } else {
+          wx.showToast({
+            title: '上传图片太多啦',
+            icon: 'loading',
+            duration: 2000
+          })
+        }
       };
     }
 
@@ -98,24 +114,50 @@ Page({
   ReleasePost: function() {
     console.log("next")
     var post_time = util.formatTime(new Date());
-
     var that = this
-    wx.request({
-      url: 'https://www.horseee.top/new-post',
-      data: {
-        detail: that.data.detail,
-        title: that.data.title,
-        id: that.data.id,
-        image: that.data.server_path,
-        posttime: post_time
-      },
-      header: {
-        "Content-Type": "application/json"
-      },
-      method: 'POST',
-      success: function (res) {
-        console.log(res)
-      }
+    if (that.data.image_count > 0) {
+      wx.request({
+        url: 'https://www.horseee.top/new-post',
+        data: {
+          detail: that.data.detail,
+          title: that.data.title,
+          id: that.data.id,
+          image: that.data.server_path,
+          posttime: post_time
+        },
+        header: {
+          "Content-Type": "application/json"
+        },
+        method: 'POST',
+        success: function (res) {
+          console.log(res)
+          if (res.statusCode == 500) {
+            wx.showToast({
+              title: '发布失败',
+            })
+          } else if (res.statusCode == 201) {
+            wx.showToast({
+              title: '发布成功！',
+              icon: 'success',
+              duration: 5000,
+            });
+            that.JumpToIndex()
+          }
+        }
+      })
+    } else {
+      wx.showToast({
+        title: '至少三张图片哦',
+        icon: 'loading'
+      })
+      
+    }
+  },
+
+  JumpToIndex: function(){
+    console.log("hello")
+    wx.switchTab({
+      url: '/pages/about/about',
     })
   },
 

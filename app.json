@@ -1,14 +1,17 @@
 {
   "pages":[
     "pages/answer/answer",
+    "pages/welcome/welcome",
+    "pages/view/view",
+    "pages/new_post/new_post",
+    
     "pages/live/live",
     
-    "pages/welcome/welcome",
-    "pages/new_post/new_post",
     "pages/about/about",
     "pages/index/index",
     "pages/question/question",
     "pages/share/share"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
