@@ -1,32 +1,34 @@
 <!--pages/share/share.wxml-->
-<!--说说列表-->
 <view>
 
-  <view class="block-list" wx:for="{{focus}}">
+  <view class="block-list" wx:for="{{new_post_list}}" wx:for-index="idx">
     <view class="info-list">
       <view class="info-left-list">
-        <image src="{{userInfo.avatarUrl}}" class="head-portrait-list"></image>
-        <text class="name">{{userInfo.nickName}}</text>
-        <text class="date">{{dateMonth}} {{dataDay}} {{dateYear}}</text>
+        <image src="{{item.avatarUrl}}" class="head-portrait-list"></image>
+        <text class="name">{{item.name}}</text>
+        <text class="date">{{item.month}} {{item.day}} {{item.daytime}}</text>
       </view>
 
-      <view class="tool-item" catchtap="onUpTap">
-          <image animation="{{animationUp}}" wx:if="{{upStatus}}" src="/assets/icons/liked.png" />
-          <image animation="{{animationUp}}" wx:else src="/assets/icons/like.png" />
+      <view class="tool-item" catchtap="onUpTap" data-type="{{idx}}">
+        <image wx:if="{{item.upstatus}}" src="/assets/icons/liked.png" />
+        <image wx:else src="/assets/icons/like.png" />
+        <text class="like-count-text">{{item.LikeCount}}</text>
       </view>
 
     </view>
 
     <view class="image-list">
-      <image class="image-album" src="{{item.images}}"></image>
-      <image class="image-album" src="{{item.images}}"></image>
-      <image class="image-album" src="{{item.images}}"></image>
+      <image class="image-album" src="{{item.url_1}}"  data-src="{{item.url_1}}" bindtap="ImageLook" data-type="{{idx}}"></image>
+      <image class="image-album" src="{{item.url_2}}"  data-src="{{item.url_1}}" bindtap="ImageLook" data-type="{{idx}}"></image>
+      <image class="image-album" src="{{item.url_3}}"  data-src="{{item.url_1}}" bindtap="ImageLook" data-type="{{idx}}"></image>
     </view>
 
-    <navigator url="/pages/view/view?id={{item.id}}">
-      <view class="detail-list">{{item.title}}</view>
+    <navigator url="/pages/view/view?postid={{item.postid}}" data-type="{{idx}}">
+      <text class="detail-list">{{item.title}}</text>
     </navigator>
 
-  
+    <view class="divide-line"> </view>
+
   </view>
+
 </view>

@@ -69,7 +69,14 @@ Page({
         }
       }
     })
-    
+  },
+
+  JumpToPerson: function(e) {
+    var num = e.currentTarget.dataset.type
+    var click_user = this.data.User[num]
+    wx.navigateTo({
+      url: '/pages/person/person?name=' + click_user.name + "&id=" + click_user.id + "&avatar=" + click_user.avatar + "&like=" + click_user.like + "&post=" + click_user.post + "&score=" + click_user.score + "&province=" + click_user.province + "&city=" + click_user.city
+    })
   },
 
   /**
@@ -118,6 +125,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
-  }
+    return {
+      title: "L'oreal X A-one",
+      desc: "一个答题+美妆的小程序，快来体验吧",
+      path: "pages/welcome/welcome"
+    }
+  },
 })

@@ -78,7 +78,7 @@ Page({
               console.log(res)
               wx.showToast({
                 title: '上传图片失败,请重新尝试',
-                icon: 'loading',
+                image: '/assets/icons/error3.png',
                 duration: 2000
               })
               return;
@@ -87,7 +87,7 @@ Page({
         } else {
           wx.showToast({
             title: '上传图片太多啦',
-            icon: 'loading',
+            image: '/assets/icons/error3.png',
             duration: 2000
           })
         }
@@ -134,6 +134,7 @@ Page({
           if (res.statusCode == 500) {
             wx.showToast({
               title: '发布失败',
+              image: '/assets/icons/error3.png',
             })
           } else if (res.statusCode == 201) {
             wx.showToast({
@@ -147,8 +148,8 @@ Page({
       })
     } else {
       wx.showToast({
-        title: '至少三张图片哦',
-        icon: 'loading'
+        title: '至少一张图片哦',
+        image: '/assets/icons/error3.png',
       })
       
     }
@@ -207,6 +208,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
-  }
+    return {
+      title: "L'oreal X A-one",
+      desc: "一个答题+美妆的小程序，快来体验吧",
+      path: "pages/welcome/welcome"
+    }
+  },
 })

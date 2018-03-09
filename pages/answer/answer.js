@@ -8,14 +8,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    live_time: "3月8日 23:00",
+    live_time: "3月9日 21:45",
     heart_extra: 0,
     ranking_whole: '100+',
     id: '',
-  },
-
-  test: function() {
-     
   },
 
 
@@ -56,9 +52,6 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-
-  
-
   onLoad: function (options) {
     var that = this
     wx.getStorage({
@@ -77,6 +70,24 @@ Page({
       console.log('onBackgroundAudioPlay')
     }) 
     
+  },
+
+  test: function(){
+    wx.getBackgroundAudioPlayerState({
+      success: function (res) {
+        console.log('duration:' + res.duration)
+        console.log('currentPosition:' + res.currentPosition)
+        console.log('status:' + res.status)
+        console.log('downloadPercent:' + res.downloadPercent)
+        console.log('dataUrl:' + res.dataUrl)
+      },
+      fail: function (res) {
+        console.log(res)
+      },
+      complete: function (res) {
+        console.log(res)
+      }
+    })  
   },
 
   /**
@@ -125,7 +136,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return {
+      title: "L'oreal X A-one",
+      desc: "下一场直播马上开始！速来参加！",
+      path: "pages/welcome/welcome"
+    }
   },
 
 })

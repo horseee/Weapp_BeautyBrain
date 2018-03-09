@@ -1,0 +1,5 @@
+<!--pages/music/music.wxml-->
+<audio poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="myAudio"  class="audio-class" ></audio>
+ 
+<button type="primary" bindtap="audioPlay">播放</button>
+<button type="primary" bindtap="audioPause">暂停</button>

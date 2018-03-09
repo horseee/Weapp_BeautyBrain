@@ -87,7 +87,9 @@ Page({
           UserName: app.globalData.userInfo.nickName,
           StudentID: tempID,
           UserUrl: app.globalData.userInfo.avatarUrl,
-          LoginCode : co
+          LoginCode : co,
+          province: app.globalData.userInfo.province,
+          city: app.globalData.userInfo.city
         },
         header: {
           "Content-Type": "application/json"
@@ -98,7 +100,7 @@ Page({
           if (res.statusCode == 500 || res.data == -1) {
             wx.showToast({
               title: '登录出现了小问题',
-              icon: 'loading',
+              image: '/assets/icons/error3.png',
               duration: 2000  
             })
             notJump = true
@@ -148,5 +150,13 @@ Page({
 
   onHide: function (event) {
 
+  },
+
+  onShareAppMessage: function () {
+    return {
+      title: "L'oreal X A-one",
+      desc: "一个答题+美妆的小程序，快来体验吧",
+      path: "pages/welcome/welcome"
+    }
   },
 })

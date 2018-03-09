@@ -1,0 +1,4 @@
+/* pages/music/music.wxss */
+.audio-class{
+  height: 0rpx;
+}

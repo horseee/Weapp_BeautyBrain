@@ -8,7 +8,7 @@
 <view wx:if="{{hasResult}}" class="search-result">
   <view wx:for="{{User}}" wx:for-index="idx" class="result-list">
     <image src="{{item.avatar}}" class="search-image-list"></image>
-    <view class="search-result-info-box">
+    <view class="search-result-info-box" data-type="{{idx}}" bindtap="JumpToPerson">
       <text class="search-result-name">{{item.name}}</text>
       <view>
         <text class="search-result-info-text">动态：{{item.post}}  </text>

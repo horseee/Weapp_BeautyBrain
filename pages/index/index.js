@@ -123,9 +123,9 @@ Page({
 
   onShareAppMessage: function(){
     return {
-      title: "看新闻小程序",
-      desc: "一个看新闻的小程序，描述",
-      path: "pages/index/index"
+      title: "L'oreal X A-one",
+      desc: "一个答题+美妆的小程序，快来体验吧",
+      path: "pages/welcome/welcome"
     }
   },
 

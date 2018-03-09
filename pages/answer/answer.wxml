@@ -1,6 +1,4 @@
 <!--pages/answer/answer.wxml-->
-
-
 <view class="time-box">
   <view class="next-time">
     <text class="black-font">下一场答题竞赛</text>

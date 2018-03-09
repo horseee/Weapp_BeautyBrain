@@ -1,4 +1,7 @@
 /**index.wxss**/
+.audio-class {
+  height: 0rpx;
+}
 
 .time-box{
   background-color: #fff;

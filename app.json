@@ -1,6 +1,8 @@
 {
   "pages":[
     "pages/welcome/welcome",
+    "pages/share/share",
+    "pages/search/search",
     "pages/answer/answer",
     "pages/live/live",
     "pages/view/view",
@@ -8,8 +10,7 @@
     "pages/about/about",
     "pages/index/index",
     "pages/question/question",
-    "pages/share/share",
-    "pages/search/search"
+    "pages/person/person"
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -1,6 +1,4 @@
 /* pages/share/share.wxss */
-
-/**photo-list**/
 .block-list {
   display: flex;
   flex-direction: column;
@@ -35,17 +33,22 @@
   align-items:center;
 }
 
+.like-count-text{
+  font-size: 28rpx;
+  color: #919191;
+}
+
 .name {
   color: #919191;
   font-style: bold;
-  margin-left: 10rpx;
+  margin-left: 20rpx;
   font-size: 28rpx;
 }
 
 .date{
-  color: #919191;
-  margin-left: 10rpx;
-  font-size: 20rpx;
+  color: #CCC;
+  margin: auto 20rpx;
+  font-size: 28rpx;
 }
 
 .head-portrait-list{
@@ -55,14 +58,23 @@
 }
 
 .detail-list{
-  margin:0 60rpx 0 60rpx;
-  font-size: 24rpx;
+  margin:0 0rpx 0 80rpx;
+  font-size: 32rpx;
   font-family: Microsoft YaHei;
   color: #919191;
 }
 
 .tool-item{
   margin-right: 50rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.divide-line{
+  width: 80%;
+  border-bottom: 1px solid #ededed;
+  margin: 15rpx auto;
 }
 
 /**like**/

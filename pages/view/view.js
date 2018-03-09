@@ -86,6 +86,17 @@ Page({
     })
   },
 
+  ImageLook: function(event) {
+    var src = event.currentTarget.dataset.src
+    var that = this
+    var imageList = new Array()
+
+    wx.previewImage({
+      current: src,
+      urls: that.data.detail.image
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -132,6 +143,10 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
-  }
+    return {
+      title: "L'oreal X A-one",
+      desc: "快来为我点赞吧",
+      path: "pages/welcome/welcome"
+    }
+  },
 })

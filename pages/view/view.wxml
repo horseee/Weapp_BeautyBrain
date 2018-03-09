@@ -20,7 +20,7 @@
 
   <view class="album-list">
   <view  wx:for="{{detail.image}}">
-    <image style = "width: {{image_width}}rpx;height:{{image_height}}rpx;margin-left:4rpx;margin-right:4rpx" src="{{item}}" mode = "aspectFill"></image>
+    <image style = "width: {{image_width}}rpx;height:{{image_height}}rpx;margin-left:4rpx;margin-right:4rpx" src="{{item}}" mode = "aspectFill" bindtap="ImageLook"></image>
   </view>
 </view>
 

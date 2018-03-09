@@ -1,0 +1,28 @@
+<!--pages/person/person.wxml-->
+
+<view class="container">
+
+  <image class="avatar" src="{{avatar}}"></image>
+  <text class="name-container">{{name}}</text>
+  <view class="place-container"> 
+    <image src="/assets/icons/location.png" class="location-icon"></image>
+    <text class="place">{{city}} </text>
+    <text class="place">{{province}}</text>
+  </view>
+
+  <view class="divide-line">
+    <view class="like-box" bindtap="GoToShare">
+      <text class = "list-number">{{post}}</text>
+      <text class = "list-type">动态</text>
+    </view>
+    <view class="like-box">
+      <text class = "list-number">{{like}}</text>
+      <text class = "list-type">赞</text>
+    </view>
+    <view class="like-box">
+      <text class = "list-number">{{score}}</text>
+      <text class = "list-type">答题积分</text>
+    </view>
+  </view>
+
+</view>

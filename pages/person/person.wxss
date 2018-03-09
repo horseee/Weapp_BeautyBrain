@@ -1,0 +1,90 @@
+/* pages/person/person.wxss */
+
+.container{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+}
+
+.add-image{
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 50rpx;
+}
+
+.add-text{
+  font-size: 20rpx;
+  font-weight: 15;
+  color: #929292;
+  text-align: center;
+}
+
+.avatar{
+    width:175rpx;
+    height:175rpx;
+    border-radius: 80%;
+}
+
+.level-container{
+    margin-top: 45rpx;
+}
+
+.place{
+    font-size: 25rpx;
+    margin-right: 10rpx;
+}
+
+.location-icon{
+    width: 30rpx;
+    height: 30rpx;
+    margin-right: 20rpx ;
+}
+
+.name-container{
+    font-size:36rpx;
+    margin-top: 85rpx
+}
+
+.place-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 25rpx;
+}
+
+.divide-line{
+    height: 120rpx;
+    width: 80%;
+    border-bottom: 2px solid #ededed;
+    border-top: 2px solid #ededed;
+    margin-top: 80rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 50rpx;
+}
+
+.like-box {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20rpx;
+}
+
+.list-number{
+    font-size: 40rpx;
+    font-weight: 20;
+    text-align: center;
+}
+
+.list-type{
+    font-size: 20rpx;
+    font-weight: 15;
+    color: #929292;
+    text-align: center;
+}
+
+page{
+    background-color:#fff;
+}
+
+

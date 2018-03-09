@@ -11,10 +11,10 @@
   </view>
 
   <view class="divide-line">
-    <navigator url="/pages/share/share" class="like-box">
+    <view class="like-box" bindtap="GoToShare">
       <text class = "list-number">{{saying_count}}</text>
       <text class = "list-type">动态</text>
-    </navigator>
+    </view>
     <view class="like-box">
       <text class = "list-number">{{like_count}}</text>
       <text class = "list-type">赞</text>

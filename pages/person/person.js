@@ -1,24 +1,43 @@
-// pages/about/about.js
-
-const app=getApp()
-
+// pages/person/person.js
 Page({
-  data: {
-    UserLevel: 1,
-    saying_count: 0,
-    like_count: 0,
-    question_score: 0
 
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    name: '',
+    id: '',
+    avatar: '',
+    like: '',
+    post: '',
+    city: '',
+    province: '',
+    score: ''
   },
 
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad: function (options) {
-    var that = this
-    console.log(app.globalData.userInfo)
+    console.log(options)
     this.setData({
-      userInfo: app.globalData.userInfo,
+      name: options.name,
+      id: options.id,
+      avatar: options.avatar,
+      like: options.like,
+      post: options.post,
+      score: options.score,
+      province: options.province,
+      city: options.city
     })
   },
 
+  GoToShare: function(){
+    var that = this
+    wx.navigateTo({
+      url: '/pages/share/share?postuserid=' + that.data.id,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -30,18 +49,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var that=this
+    var that = this
     wx.request({
       url: 'https://www.horseee.top/user_info',
       data: {
-        userid: app.globalData.id
+        userid: that.data.id
       },
       success: function (e) {
         console.log(e)
         that.setData({
-          like_count: e.data.info[0].like,
-          saying_count: e.data.info[0].saying,
-          question_score: e.data.info[0].score
+          like: e.data.info[0].like,
+          post: e.data.info[0].saying
         })
       }
     })
@@ -52,13 +70,6 @@ Page({
    */
   onHide: function () {
   
-  },
-
-  GoToShare: function () {
-    var that = this
-    wx.navigateTo({
-      url: '/pages/share/share?postuserid=' + app.globalData.id,
-    })
   },
 
   /**

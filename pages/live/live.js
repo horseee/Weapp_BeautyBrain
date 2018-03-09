@@ -19,12 +19,16 @@ var countdowntimer;
 
 Page({
   data: {
+    music_poster: 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTK1V6BNbTzjPFKvnSdn8skN9dm2U5up6DZks0QJn1Pu6a9YwFWSzL9EYKZGO3OBBcc4B2Hz0jwflg/0',
+    music_name: 'horseee',
+    music_author: 'horseee',
+    music_src: 'https://www.horseee.top/mp3/201801.mp3',
     remain_type: "",
     show_type: "",
     windowWidth: 375,
     windowHeight: 603,
     id: "",
-    start_time: "2018-03-09-10-50-40",
+    start_time: "2018-03-10-00-27-45",
     QuestionInf: "",
     A_text: "",
     B_text: "",
@@ -71,6 +75,15 @@ Page({
       var question = that.data.QuestionInf[index]
       console.log(index)
       console.log(question)
+      wx.getBackgroundAudioPlayerState({
+        success: function (res) {
+          console.log('duration:' + res.duration)
+          console.log('currentPosition:' + res.currentPosition)
+          console.log('status:' + res.status)
+          console.log('downloadPercent:' + res.downloadPercent)
+          console.log('dataUrl:' + res.dataUrl)
+        }
+      })  
       that.setData({
         A_text: question.A,
         B_text: question.B,
@@ -109,11 +122,11 @@ Page({
         }
 
         if (that.data.isAlive == false && that.data.stilldied == false) {
-          that.updateScore(index + 1, that.data.total_count-that.data.remain_count)
+          that.updateScore(index, that.data.total_count-that.data.remain_count)
           wx.showModal({
             title: 'Sorry',
-            content: '答错啦！还需继续加油哦～',
-            confirmText: '退出',
+            content: '答错啦！击败了'+(that.data.total_count - that.data.remain_count)+'人',
+            confirmText: '退出比赛',
             success: function (res) {
               if (res.confirm) {
                 wx.switchTab({
@@ -122,6 +135,20 @@ Page({
               } 
             }
           }) 
+        } else if (that.data.isAlive && index+1 == that.data.QuestionInf.length) {
+          that.updateScore(index + 1, that.data.total_count - that.data.remain_count)
+          wx.showModal({
+            title: 'WoW',
+            content: '恭喜你成功答对了所有题目，本场共' + that.data.remain_count + '人挑战成功！',
+            confirmText: '退出',
+            success: function (res) {
+              if (res.confirm) {
+                wx.switchTab({
+                  url: '/pages/answer/answer',
+                })
+              }
+            }
+          })
         }
 
         that.setData({
@@ -157,14 +184,12 @@ Page({
       
       if (index < that.data.QuestionInf.length - 1)
         that.updateText(index)
-      else {
-        that.updateScore(index+1, that.data.total_count - that.data.remain_count)
-      }
     }, that.data.QuestionInf[index+1].time * 1000);
   },
 
   updateScore: function(question, beatCount) {
-    ThisTimeScore = question * 10 + beatCount
+    var that = this
+    var ThisTimeScore = question * 10 + beatCount
     wx.request({
       url: 'https://www.horseee.top/update-score',
       data: {
@@ -207,13 +232,6 @@ Page({
       }
     })
 
-    wx.playBackgroundAudio({
-      dataUrl: 'https://www.horseee.top/mp3',
-      success: function (e) {
-        wx.pauseBackgroundAudio()
-      }
-    })
-
     var time_arr = this.data.start_time.split("-")
     var start_hour = parseInt(time_arr[3])
     var start_min = parseInt(time_arr[4])
@@ -241,12 +259,7 @@ Page({
     })
 
     start_timer = setTimeout(function () {
-      wx.playBackgroundAudio({
-        dataUrl: 'https://www.horseee.top/mp3',
-        success: function(e) {
-          console.log("start playing")
-        }
-      })
+      that.audioCtx.play()
       wx.request({
         url: 'https://www.horseee.top/contest_number_0',
         success: function(e){
@@ -450,6 +463,7 @@ Page({
   },
 
   onReady: function () {
+    this.audioCtx = wx.createAudioContext('myAudio')
     //创建并返回绘图上下文context对象。
     var cxt_arc = wx.createCanvasContext('canvasCircle');
     cxt_arc.setLineWidth(6);
@@ -462,7 +476,15 @@ Page({
   },
 
   onUnload: function() {
-    console.log("live exit")  
+    console.log("live exit") 
+    clearTimeout(start_timer)
+    clearTimeout(new_question_timer)
+    clearTimeout(effects_timer)
+    clearTimeout(vanish_timer)
+    clearTimeout(Result_timer)
+    clearTimeout(Remain_timer_1)
+    clearTimeout(Remain_timer_2)
+    clearTimeout(countdowntimer) 
     wx.request({
       url: 'https://www.horseee.top/contest/exit_1',
       data: {
@@ -477,6 +499,15 @@ Page({
       }
     })
     wx.stopBackgroundAudio()
-  }
+  },
+
+  onShareAppMessage: function () {
+    return {
+      title: "L'oreal X A-one",
+      desc: "一个答题+美妆的小程序，快来体验吧",
+      path: "pages/welcome/welcome"
+    }
+  },
+
 
 })
