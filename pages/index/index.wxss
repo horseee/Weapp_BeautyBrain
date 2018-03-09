@@ -15,6 +15,35 @@
   margin: auto 40rpx auto 0;
 }
 
+.result-list{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+}
+
+.search-image-list{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+
+.search-result-name{
+  font-size: 32rpx
+}
+
+.search-result-info-box{
+  display: flex;
+  flex-direction: column;
+  margin-left: 40rpx
+}
+
+.search-result-info-text{
+  font-size: 26rpx;
+  color: #919191;
+}
+
 .search-button{
   font-size: 30rpx;
 

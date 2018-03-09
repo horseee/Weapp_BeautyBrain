@@ -16,6 +16,9 @@ Page({
     duration: 1000,
     circular: true,
     pageNumber: 1,
+    isSearch: false,
+    searchtext: "",
+    User:''
   },
   
   swichNav: function (e) {
@@ -142,6 +145,19 @@ Page({
       }
     })*/
   },
+  onBindinput: function(e) {
+    this.setData({
+      searchtext: e.detail.value
+    })
+  },
+
+  onBindConfirm: function(e) {
+    var that = this
+    console.log(that.data.searchtext)
+    wx.navigateTo({
+      url: '/pages/search/search?searchtext=' + that.data.searchtext,
+    })
+  },
 
   ImageLook: function(event){
     var src = event.currentTarget.dataset.src;//获取data-src
@@ -196,7 +212,6 @@ Page({
       timingFunction: 'ease-in-out'
     })
     this.animationUp = animationUp
-
 
   },
   

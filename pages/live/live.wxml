@@ -1,4 +1,7 @@
 <view class="background" style = "position: abosolute; width:{{windowWidth}}px; height:{{windowHeight}}px; background-image: url('/assets/image/6.jpg');margin-top: 0px; display: flex; flex-direction:column; align-items: center">
+  <view wx:if="{{ifnotstart}}" class = "time-box">
+    <text class = "remain-time">离开始还有 {{deltahour}}:{{deltamin}}:{{deltasec}}</text>
+  </view>
 
   <view class="answer-sheet">
     <view class="circle-box">
@@ -8,7 +11,7 @@
       </canvas>
     </view>
 
-    <text class="question-text magictime {{special_effects}}">{{detail}}</text>
+    <text class="question-text magictime {{special_effects}}"></text>
 
     <view class="magic-btn magictime {{special_effects}} {{isA_click==true ? 'click-on' : ''}}" bindtap='chooseAnswer' data-type = 'A'>
       <text style = "margin-left: 30rpx; width: 60%">{{A_text}}</text>

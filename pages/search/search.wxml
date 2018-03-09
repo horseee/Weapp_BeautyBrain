@@ -1,0 +1,22 @@
+<!--pages/search/search.wxml-->
+<view class="search">
+  <input type="text" placeholder="" 
+  placeholder-class="placeholder" bindconfirm="onBindConfirm" bindinput="onBindinput"/>
+  <icon type="search" class="search-img" size="13" color="#405f80" catchtap='onBindConfirm'></icon>
+</view>
+
+<view wx:if="{{hasResult}}" class="search-result">
+  <view wx:for="{{User}}" wx:for-index="idx" class="result-list">
+    <image src="{{item.avatar}}" class="search-image-list"></image>
+    <view class="search-result-info-box">
+      <text class="search-result-name">{{item.name}}</text>
+      <view>
+        <text class="search-result-info-text">动态：{{item.post}}  </text>
+        <text class="search-result-info-text">赞：{{item.like}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view wx:else class="result-list">
+  <text class="no-result">未搜索到相关结果</text>
+</view>
