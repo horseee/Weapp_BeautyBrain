@@ -32,7 +32,7 @@ Page({
         isShow: showMode
       })
       
-      if (showMode) {
+      if (that.data.isShow) {
         wx.request({
           url: 'https://www.horseee.top/hot/0',
           data: {

@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    live_time: "3月9日 21:45",
+    live_time: "3月11日 21:20",
     heart_extra: 0,
     ranking_whole: '100+',
     id: '',
@@ -101,7 +101,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    var that = this
+    wx.request({
+      url: 'https://www.horseee.top/ranking',
+      data: {
+        id: app.globalData.id
+      },
+      success: function (e) {
+        console.log(e)
+        that.setData({
+          ranking_whole: e.data
+        })
+      }
+    })
   },
 
   /**
@@ -138,7 +150,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: "L'oreal X A-one",
-      desc: "下一场直播马上开始！速来参加！",
+      desc: "下一场答题比赛马上开始！速来参加！",
       path: "pages/welcome/welcome"
     }
   },

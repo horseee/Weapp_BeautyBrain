@@ -77,7 +77,7 @@ Page({
             fail: function (res) {
               console.log(res)
               wx.showToast({
-                title: '上传图片失败,请重新尝试',
+                title: '上传图片太大(<5M)',
                 image: '/assets/icons/error3.png',
                 duration: 2000
               })

@@ -60,7 +60,6 @@
 
 .date {
   color: #919191;
-  margin-right: 38rpx;
 }
 
 .detail {

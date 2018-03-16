@@ -9,7 +9,7 @@
 
   <view class="album_show">
     <view wx:for="{{finish_image}}">  
-      <image src="{{item}}" mode="aspecFill" style="width: 100px; height: 100px"/>  
+      <image src="{{item}}" mode = "aspectFill" style="width: 100px; height: 100px"/>  
     </view>
   </view>
 

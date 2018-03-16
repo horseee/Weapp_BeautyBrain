@@ -19,16 +19,12 @@ var countdowntimer;
 
 Page({
   data: {
-    music_poster: 'https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTK1V6BNbTzjPFKvnSdn8skN9dm2U5up6DZks0QJn1Pu6a9YwFWSzL9EYKZGO3OBBcc4B2Hz0jwflg/0',
-    music_name: 'horseee',
-    music_author: 'horseee',
-    music_src: 'https://www.horseee.top/mp3/201801.mp3',
     remain_type: "",
     show_type: "",
     windowWidth: 375,
     windowHeight: 603,
     id: "",
-    start_time: "2018-03-10-00-27-45",
+    start_time: "2018-03-15-18-15-40",
     QuestionInf: "",
     A_text: "",
     B_text: "",
@@ -259,9 +255,8 @@ Page({
     })
 
     start_timer = setTimeout(function () {
-      that.audioCtx.play()
       wx.request({
-        url: 'https://www.horseee.top/contest_number_0',
+        url: 'https://www.horseee.top/contest_total',
         success: function(e){
           console.log(e)
           that.setData({

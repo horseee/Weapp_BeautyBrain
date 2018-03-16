@@ -1,5 +1,7 @@
-<!--pages/music/music.wxml-->
-<audio poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="myAudio"  class="audio-class" ></audio>
- 
-<button type="primary" bindtap="audioPlay">播放</button>
-<button type="primary" bindtap="audioPause">暂停</button>
+<view class="wrap">
+  <view class="circle-box">
+    <canvas class="circle" style="width:200px; height:200px;" canvas-id="canvasArcCir">
+    </canvas>
+    <view class="draw_btn" bindtap="drawCircle">开始动态绘制</view>
+  </view>
+</view>

@@ -7,8 +7,7 @@
     <view class="circle-box">
       <canvas class="circle" style="width:200px; height:200px;" canvas-id="canvasArcCir">
       </canvas>
-      <canvas class="circle" style="z-index: -5; width:200px; height:200px;" canvas-id="canvasCircle">
-      </canvas>
+      
     </view>
 
     <text class="question-text magictime {{special_effects}}">{{detail}}</text>
@@ -42,7 +41,4 @@
   </view>
   </view>
 </view>
-
-<audio poster="{{music_poster}}" name="{{music_name}}" author="{{music_author}}" src="{{music_src}}" id="myAudio"  class="audio-class" ></audio>
-
 

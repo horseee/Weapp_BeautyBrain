@@ -45,9 +45,9 @@
     </view>
 
     <view wx:if="{{item.url_1}}!=''" class="image-list">
-      <image class="image-album" src="{{item.url_1}}" data-src="{{item.url_1}}" bindtap="ImageLook" data-type="{{idx}}"></image>
-      <image class="image-album" src="{{item.url_2}}" data-src="{{item.url_2}}" bindtap="ImageLook" data-type="{{idx}}"></image>
-      <image class="image-album" src="{{item.url_3}}" data-src="{{item.url_3}}" bindtap="ImageLook" data-type="{{idx}}"></image>
+      <image class="image-album" src="{{item.url_1}}" data-src="{{item.url_1}}" bindtap="ImageLook" data-type="{{idx}}" mode = "aspectFill"></image>
+      <image class="image-album" src="{{item.url_2}}" data-src="{{item.url_2}}" bindtap="ImageLook" data-type="{{idx}}" mode = "aspectFill"></image>
+      <image class="image-album" src="{{item.url_3}}" data-src="{{item.url_3}}" bindtap="ImageLook" data-type="{{idx}}" mode = "aspectFill"></image>
     </view>
 
     <navigator url="/pages/view/view?postid={{item.postid}}" data-type="{{idx}}">
@@ -80,9 +80,9 @@
     </view>
 
     <view class="image-list">
-      <image class="image-album" src="{{item.url_1}}"  data-src="{{item.url_1}}" bindtap="ImageLook" data-type="{{idx}}"></image>
-      <image class="image-album" src="{{item.url_2}}"  data-src="{{item.url_1}}" bindtap="ImageLook" data-type="{{idx}}"></image>
-      <image class="image-album" src="{{item.url_3}}"  data-src="{{item.url_1}}" bindtap="ImageLook" data-type="{{idx}}"></image>
+      <image class="image-album" src="{{item.url_1}}"  data-src="{{item.url_1}}" bindtap="ImageLook" data-type="{{idx}}" mode = "aspectFill"></image>
+      <image class="image-album" src="{{item.url_2}}"  data-src="{{item.url_1}}" bindtap="ImageLook" data-type="{{idx}}" mode = "aspectFill"></image>
+      <image class="image-album" src="{{item.url_3}}"  data-src="{{item.url_1}}" bindtap="ImageLook" data-type="{{idx}}" mode = "aspectFill"></image>
     </view>
 
     <navigator url="/pages/view/view?postid={{item.postid}}" data-type="{{idx}}">
